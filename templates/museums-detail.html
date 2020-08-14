@@ -1,0 +1,209 @@
+{% extends 'allPageTemplate.html' %}{% load static %} {% block header %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/museums-template-style.css' %}"
+/>
+{% endblock header %} {% block content %}
+<div class="container">
+  <header class="blog-header m-5 pt-5 pb-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+      </div>
+      <div class="col-4 text-center">
+        <p class="blog-header-logo text-dark font-italic">Museums</p>
+      </div>
+      <div class="col-4">
+      </div>
+    </div>
+    <nav class="nav d-flex justify-content-between py-2">
+      <a class="p-2 text-muted" href="{% url 'museums-type' museum_type='Culture' %}">Culture</a>
+      <a class="p-2 text-muted" href="{% url 'museums-type' museum_type='Miltary' %}">Miltary</a>
+      <a class="p-2 text-muted" href="{% url 'museums-type' museum_type='History' %}">History</a>
+      <a class="p-2 text-muted" href="{% url 'museums-type' museum_type='Sports' %}">Sports</a>
+      <a class="p-2 text-muted" href="{% url 'museums-type' museum_type='Science' %}">Science</a>
+      <a class="p-2 text-muted" href="{% url 'museums-type' museum_type='Business' %}">Business</a>
+      <a class="p-2 text-muted" href="{% url 'museums-type' museum_type='Politics' %}">Politics</a>
+    </nav>
+  </header>
+
+  {% for museum in museum_list %}
+  {% if forloop.counter == 1 %}
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border border-dark rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col-auto d-none d-lg-block">
+          {% if museum.museum_has_pic %}
+            <a href="{{ museum.museum_wiki_url }}" target="_blank">
+              <img width="200" height="250" href="{{ museum.museum_wiki_url }}" src="{{ museum.museum_pic_url }}" class="card-img-left" alt="...">
+            </a>
+          {% else %}
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+          {% endif %}
+        </div>
+        <div class="col p-4 d-flex flex-column position-static museum-tile">
+          <h5 class="mb-3 font-weight-bold">{{ museum.museum_nme }}</h5>
+          <p class="card-text mb-auto h6">{{ museum.museum_desc }}</p>
+          <a href="{{ museum.museum_url }}" target="_blank" class="font-weight-bold text-decoration-none">Continue reading</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if forloop.counter == 2 %}
+    <div class="col-md-6">
+      <div class="row no-gutters border border-dark rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static museum-tile">
+          <h5 class="mb-3 font-weight-bold">{{ museum.museum_nme }}</h5>
+          <p class="card-text mb-auto h6">{{ museum.museum_desc }}</p>
+          <a href="{{ museum.museum_url }}" target="_blank" class="font-weight-bold text-decoration-none">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          {% if museum.museum_has_pic %}
+          <img width="200" height="250" href="{{ museum.museum_wiki_url }}" src="{{ museum.museum_pic_url }}" class="card-img-left" alt="...">
+          {% else %}
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% if forloop.counter == 2 or forloop.count < 2 %}  
+  </div>
+  {% endif %}
+  {% if forloop.counter == 3 %}
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border border-dark rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static museum-tile">
+          <h5 class="mb-3 font-weight-bold">{{ museum.museum_nme }}</h5>
+          <p class="card-text mb-auto h6">{{ museum.museum_desc }}</p>
+          <a href="{{ museum.museum_url }}" target="_blank" class="font-weight-bold text-decoration-none">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          {% if museum.museum_has_pic %}
+            <img width="200" height="250" href="{{ museum.museum_wiki_url }}" src="{{ museum.museum_pic_url }}" class="card-img-left" alt="...">
+          {% else %}
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if forloop.counter == 4 %}
+    <div class="col-md-6">
+      <div class="row no-gutters border border-dark rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col-auto d-none d-lg-block">
+          {% if museum.museum_has_pic %}
+            <img width="200" height="250" href="{{ museum.museum_wiki_url }}" src="{{ museum.museum_pic_url }}" class="card-img-left" alt="...">
+          {% else %}
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+          {% endif %}
+        </div>
+        <div class="col p-4 d-flex flex-column position-static museum-tile">
+          <h5 class="mb-3 font-weight-bold">{{ museum.museum_nme }}</h5>
+          <p class="mb-auto card-text mb-auto h6">{{ museum.museum_desc }}</p>
+          <a href="{{ museum.museum_url }}" target="_blank" class="font-weight-bold text-decoration-none">Continue reading</a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  {% if forloop.counter == 4 or forloop.count < 4 %}  
+  </div>
+  {% endif %}
+  {% if forloop.counter == 5 %}
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border border-dark rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col-auto d-none d-lg-block">
+          {% if museum.museum_has_pic %}
+            <img width="200" height="250" href="{{ museum.museum_wiki_url }}" src="{{ museum.museum_pic_url }}" class="card-img-left" alt="...">
+          {% else %}
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+          {% endif %}
+        </div>
+        <div class="col p-4 d-flex flex-column position-static museum-tile">
+          <h5 class="mb-3 font-weight-bold">{{ museum.museum_nme }}</h5>
+          <p class="card-text mb-auto h6">{{ museum.museum_desc }}</p>
+          <div>
+            <a href="{{ museum.museum_url }}" target="_blank" class="font-weight-bold text-decoration-none">Continue reading</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% if forloop.counter == 6 %}
+    <div class="col-md-6">
+      <div class="row no-gutters border border-dark rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static museum-tile">
+          <h5 class="mb-3 font-weight-bold">{{ museum.museum_nme }}</h5>
+          <p class="card-text mb-auto h6">{{ museum.museum_desc }}</p>
+          <a href="{{ museum.museum_url }}" target="_blank" class="font-weight-bold text-decoration-none">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          {% if museum.museum_has_pic %}
+            <img width="200" height="250" href="{{ museum.museum_wiki_url }}" src="{{ museum.museum_pic_url }}" class="card-img-left" alt="...">
+          {% else %}
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"></text></svg>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  {% if forloop.counter == 6 or forloop.last %}  
+  </div>
+  {% endif %}
+  {% empty %}
+    <div class="text-center display-4">
+      <p>Sorry, no Museums found in the category selected.</p>
+    </div>
+  {% endfor %}
+  {% if is_paginated %}
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        {% if page_obj.has_previous %}
+        <a class="page-link" href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+        {% else %}
+        <li class="page-item disabled">
+          <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        {% endif %}
+      </li>
+      {% for i in paginator.page_range %}
+        {% if page_obj.number == i %}
+        <li class="page-item active">
+            <a class="page-link" href="?page={{ i }}">{{ i }} <span class="sr-only">(current)</span></a>
+          </li>
+        {% else %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+          <span aria-hidden="true">Next</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <a class="page-link" href="#">Next</a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+  {% endif %}
+</div>
+{%endblock content %} {% block footer %}
+<footer class="text-center bg-1">
+  <a class="up-arrow" href="#mainPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span> </a
+  ><br /><br />
+  <p>Site designed by Shell web development</p>
+</footer>
+{% endblock footer %}

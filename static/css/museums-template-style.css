@@ -1,0 +1,42 @@
+  .blog-header {
+    line-height: 1;
+    border-bottom: 2px solid #bdbdbd;
+  }
+
+  .blog-header-logo {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 2.25rem;
+  }
+  
+  .blog-header-logo:hover {
+    text-decoration: none;
+  }
+
+  .display-4 {
+    font-size: 2.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .display-4 {
+      font-size: 3rem;
+    }
+  }
+
+  .flex-auto {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+  .card-img-right {
+    height: 100%;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .museum-tile {
+    background-color: #e0e0e0;
+  }

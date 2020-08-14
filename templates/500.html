@@ -1,0 +1,22 @@
+{% extends 'allPageTemplate.html' %}{% load static %} {% block header %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/main-page-template-style.css' %}"
+/>
+{% endblock header %} {% block content %}
+<div id="error" class="container">
+  <div class="row">
+    <h1>500 Error</h1>
+    <p>Error occured on site.  Please refresh and try again.</p>
+  </div>
+</div>
+
+{%endblock content %} {% block footer %}
+<footer class="text-center bg-1">
+  <a class="up-arrow" href="#mainPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span> </a
+  ><br /><br />
+  <p>Site designed by Shell web development</p>
+</footer>
+{% endblock footer %}

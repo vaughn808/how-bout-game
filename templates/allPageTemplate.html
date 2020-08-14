@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="Home page for Black Exacellence, history, sources, and resources about black experiences"
+    />
+    <title>
+      {% block title %} How About A Game of Chess {% endblock title %}
+    </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/all-page-template-style.css' %}"
+    />
+    {% block header %}{% endblock header %}
+  </head>
+  <body>
+    {% if not title %}
+        <body>
+            <nav class="navbar navbar-expand-lg fixed-top font-weight-bold">
+              <a class="navbar-brand nav-link" href="/">Navbar</a>
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon custom-toggler"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ml-auto text-uppercase">
+                    <li id="learn" class="nav-item">
+                      <a class="nav-link" href="/learn">Learn</a>
+                    </li>
+                    <li id="train" class="nav-item">
+                      <a class="nav-link" href="/train">Train</a>
+                    </li>
+                    <li id="play" class="nav-item">
+                      <a class="nav-link" href="/play">Play</a>
+                    </li>
+                  </ul>
+                </div>
+            </nav>
+        </body>
+        {% block homebody %}{% endblock homebody %}
+    {% else %}
+        <body id="body-div">
+        <nav class="navbar navbar-expand-lg fixed-top bg-dark nav-back font-weight-bold">
+              <a class="navbar-brand nav-link" href="/">{{ title }}</a>
+                <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon custom-toggler"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ml-auto text-uppercase">
+                    <li id="home" class="nav-item">
+                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li id="learn" class="nav-item">
+                      <a class="nav-link" href="/learn">Learn</a>
+                    </li>
+                    <li id="train" class="nav-item">
+                      <a class="nav-link" href="/train">Train</a>
+                    </li>
+                    <li id="play" class="nav-item">
+                      <a class="nav-link" href="/play">Play</a>
+                    </li>
+                  </ul>
+                </div>
+            </nav>
+        </body>
+        {% block body %}{% endblock body %}
+    {% endif %}
+    {% block content %}{% endblock content %} {% block footer %}{% endblock footer %}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/all-page-js.js' %}" type="text/javascript"></script>
+    {% block javascript %}
+    {% endblock javascript %}
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

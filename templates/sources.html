@@ -1,0 +1,19 @@
+{% extends 'allPageTemplate.html' %}{% load static %} {% block header %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/main-page-template-style.css' %}"
+/>
+{% endblock header %} {% block content %}
+<div class="row m-5 pt-5 pb-5">
+    <p>On Sources page</p>
+</div>
+
+{%endblock content %} {% block footer %}
+<footer class="text-center bg-1">
+  <a class="up-arrow" href="#mainPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span> </a
+  ><br /><br />
+  <p>Site designed by Shell web development</p>
+</footer>
+{% endblock footer %}

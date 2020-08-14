@@ -1,0 +1,13 @@
+{% extends 'allPageTemplate.html' %}{% load static %} {% block header %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/main-page-template-style.css' %}"
+/>
+{% endblock header %}
+{% block homebody %}
+    <div id="mainPic">
+        <img src="{% static 'images/main-page.jpg' %}" class="img-fluid" alt="Photo by Tim Foster on Unsplash">
+    </div>
+{% endblock homebody %}
+{% block script %}{% endblock script %}
